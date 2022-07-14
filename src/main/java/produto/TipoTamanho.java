@@ -1,8 +1,9 @@
 package produto;
 
 public enum TipoTamanho {
+    P,M,G;
     //IMPLEMENTE A LOGICA DO ENUM
     //TODO
-    public final double multiplicador;
+    //public final double multiplicador;
 
 }
