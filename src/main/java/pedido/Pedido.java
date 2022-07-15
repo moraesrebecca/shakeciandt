@@ -29,9 +29,18 @@ public class Pedido {
         return this.cliente;
     }
 
-    public double calcularTotal(Cardapio cardapio){
+    public double calcularTotal(Cardapio cardapio) {
         double total= 0;
-        //TODO
+        for(ItemPedido item: itens) {
+            double valorItem = 0;
+            Shake shake = item.getShake();
+            valorItem += (cardapio.buscarPreco(shake.getBase()) * shake.getTipoTamanho().multiplicador);
+            for (Adicional adicional: shake.getAdicionais()) {
+                valorItem += cardapio.buscarPreco(adicional);
+            }
+            valorItem *= item.getQuantidade();
+            total += valorItem ;
+        }
         return total;
     }
 
@@ -60,7 +69,6 @@ public class Pedido {
         } else {
             throw new IllegalArgumentException("Item nao existe no pedido.");
         }
-        return false;
     }
 
     @Override
