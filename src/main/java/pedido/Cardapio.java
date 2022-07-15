@@ -34,7 +34,10 @@ public class Cardapio {
     }
 
     public boolean removerIngrediente(Ingrediente ingrediente){
-       //TODO
+        if (!this.precos.containsKey(ingrediente)) {
+            throw new IllegalArgumentException("Ingrediente nao existe no cardapio.");
+        }
+        this.precos.remove(ingrediente);
         return true;
     }
 
