@@ -27,4 +27,13 @@ public class ItemPedido {
     public String toString() {
         return this.shake + " / x" + this.quantidade;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof ItemPedido)) return false;
+
+        ItemPedido item = (ItemPedido) o;
+        return item.getShake().equals(this.shake);
+    }
 }
