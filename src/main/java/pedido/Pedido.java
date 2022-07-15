@@ -48,9 +48,15 @@ public class Pedido {
     }
 
     public boolean removeItemPedido(ItemPedido itemPedidoRemovido) {
-        //substitua o true por uma condição
-        if (true) {
-            //TODO
+        int index = itens.indexOf(itemPedidoRemovido);
+        if (index >= 0) {
+            ItemPedido itemAtual = itens.get(index);
+            this.itens.remove(index);
+            if (itemAtual.getQuantidade() > 1) {
+                itemAtual.setQuantidade(itemAtual.getQuantidade() - 1);
+                this.itens.add(itemAtual);
+            }
+            return true;
         } else {
             throw new IllegalArgumentException("Item nao existe no pedido.");
         }
