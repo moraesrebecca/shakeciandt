@@ -42,8 +42,11 @@ public class Cardapio {
     }
 
     public Double buscarPreco(Ingrediente ingrediente){
-        //TODO
-        return 0.0;
+        if (!this.precos.containsKey(ingrediente)) {
+            throw new IllegalArgumentException("Ingrediente nao existe no cardapio.");
+        }
+        Double preco = this.precos.get(ingrediente) != null ? this.precos.get(ingrediente) : 0.0;
+        return preco;
     }
 
     @Override
