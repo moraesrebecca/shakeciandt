@@ -16,7 +16,10 @@ public class Cardapio {
     }
 
     public void adicionarIngrediente(Ingrediente ingrediente,Double preco){
-        //TODO
+        if (preco <= 0) {
+            throw new IllegalArgumentException("Preco invalido.");
+        }
+        this.precos.put(ingrediente, preco);
     }
 
     public boolean atualizarIngrediente(Ingrediente ingrediente,Double preco){
