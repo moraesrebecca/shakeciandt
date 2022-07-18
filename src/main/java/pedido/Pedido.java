@@ -51,8 +51,7 @@ public class Pedido {
         } else {
             ItemPedido itemAtual = this.itens.get(index);
             itemPedidoAdicionado.setQuantidade(itemPedidoAdicionado.getQuantidade() + itemAtual.getQuantidade());
-            this.itens.remove(index);
-            this.itens.add(itemPedidoAdicionado);
+            this.itens.set(index, itemPedidoAdicionado);
         }
     }
 
